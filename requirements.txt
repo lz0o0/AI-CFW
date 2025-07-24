@@ -5,12 +5,36 @@ scapy>=2.4.5
 
 # 加密和证书管理
 cryptography>=3.4.8
+pyopenssl>=20.0.0
 
 # Linux流量拦截（仅Linux系统需要）
 netfilterqueue>=0.8.1; sys_platform == "linux"
 
 # HTTP请求处理
 requests>=2.25.1
+
+# 系统信息和进程管理
+psutil>=5.8.0
+
+# 网络接口信息
+netifaces>=0.11.0
+
+# AI模型集成
+openai>=1.0.0
+anthropic>=0.3.0
+
+# GUI弹窗支持（通常已包含在Python中）
+# tkinter - 标准库
+
+# 数据处理
+numpy>=1.21.0
+
+# 可选：声音告警支持
+playsound>=1.3.0
+
+# 测试和开发
+pytest>=6.0.0
+pytest-asyncio>=0.18.0
 
 # JSON配置处理
 # json是Python标准库，无需安装

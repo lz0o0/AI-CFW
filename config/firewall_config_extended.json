@@ -1,0 +1,184 @@
+{
+    "log_level": "INFO",
+    "log_file": "firewall.log",
+    "interface": "eth0",
+    "rules": [],
+    "whitelist": [],
+    "blacklist": [],
+    "traffic_mode": "direct",
+    "ssl_interception": {
+        "enabled": false,
+        "ca_cert_path": "firewall_ca.crt",
+        "ca_key_path": "firewall_ca.key",
+        "intercept_domains": []
+    },
+    "dpi": {
+        "enable": true,
+        "max_packet_size": 65535,
+        "enable_protocol_detection": true,
+        "enable_threat_detection": true,
+        "enable_llm_detection": true
+    },
+    "advanced_logging": {
+        "log_ssl_connections": false,
+        "log_http_content": false,
+        "log_threats": true
+    },
+    "firewall": {
+        "mode": "direct",
+        "enable_logging": true,
+        "log_level": "INFO",
+        "max_connections": 1000,
+        "timeout": 30
+    },
+    "ssl": {
+        "enable_interception": true,
+        "ca_cert_path": "./ssl_certs/ca.crt",
+        "ca_key_path": "./ssl_certs/ca.key",
+        "cert_duration_days": 365,
+        "enable_content_analysis": true
+    },
+    "processors": {
+        "enabled": [
+            "ssl_content_processor",
+            "ai_content_analyzer",
+            "encryption_analyzer",
+            "certificate_analyzer",
+            "llm_traffic_processor"
+        ]
+    },
+    "ssl_processing": {
+        "enable_ai_analysis": true,
+        "enable_api_monitoring": true,
+        "enable_data_leak_detection": true
+    },
+    "ai_analysis": {
+        "enabled_models": [
+            "openai",
+            "claude",
+            "local_llm"
+        ],
+        "analysis_types": [
+            "security_scan",
+            "threat_detection",
+            "data_leak",
+            "behavior"
+        ],
+        "batch_size": 10,
+        "max_content_length": 4000,
+        "openai": {
+            "api_key": "your-openai-api-key-here",
+            "model": "gpt-3.5-turbo",
+            "max_tokens": 1000,
+            "temperature": 0.3,
+            "timeout": 30,
+            "rate_limit": 60,
+            "enable_cache": true,
+            "max_cache_size": 1000
+        },
+        "claude": {
+            "api_key": "your-claude-api-key-here",
+            "model": "claude-3-sonnet-20240229",
+            "max_tokens": 1000,
+            "temperature": 0.3,
+            "rate_limit": 50,
+            "enable_cache": true,
+            "max_cache_size": 1000
+        },
+        "local_llm": {
+            "api_endpoint": "http://localhost:11434",
+            "model_name": "llama2",
+            "api_type": "ollama",
+            "timeout": 30,
+            "max_tokens": 1000,
+            "temperature": 0.3,
+            "enable_cache": true,
+            "max_cache_size": 500
+        }
+    },
+    "certificate_analysis": {
+        "check_revocation": false,
+        "check_ct_logs": false,
+        "trust_store_path": null
+    },
+    "traffic_interception": {
+        "mode": "direct",
+        "interface": "eth0",
+        "capture_filter": "tcp port 443 or tcp port 80",
+        "buffer_size": 1024000
+    },
+    "logging": {
+        "file_path": "./logs/firewall.log",
+        "max_file_size": "10MB",
+        "backup_count": 5,
+        "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    },
+    "performance": {
+        "max_worker_threads": 10,
+        "queue_size": 1000,
+        "batch_processing": true,
+        "enable_caching": true,
+        "cache_ttl": 3600
+    },
+    "security": {
+        "block_weak_encryption": true,
+        "block_expired_certificates": false,
+        "block_self_signed": false,
+        "block_high_threat": true,
+        "alert_on_sensitive_data": true
+    },
+    "sensitive_data_handling": {
+        "strategy": "steganography",
+        "strategies": {
+            "steganography": {
+                "description": "隐写替换敏感数据",
+                "enabled": true,
+                "replacement_patterns": {
+                    "credit_card": "****-****-****-****",
+                    "ssn": "***-**-****",
+                    "email": "***@***.***",
+                    "phone": "***-***-****",
+                    "api_key": "*********************",
+                    "password": "********"
+                }
+            },
+            "block": {
+                "description": "拦截包含敏感数据的流量",
+                "enabled": false,
+                "block_message": "Connection blocked due to sensitive data detection"
+            },
+            "silent_log": {
+                "description": "静默记录到危险日志",
+                "enabled": true,
+                "log_level": "WARNING"
+            }
+        },
+        "alert_settings": {
+            "enable_popup": true,
+            "popup_timeout": 10,
+            "enable_sound": false,
+            "sound_file": "alert.wav",
+            "enable_email": false,
+            "email_recipients": [
+                "admin@company.com"
+            ]
+        },
+        "threat_log": {
+            "file_path": "./logs/threat_log.json",
+            "max_file_size": "50MB",
+            "backup_count": 10,
+            "enable_encryption": false,
+            "retention_days": 30
+        }
+    },
+    "monitoring": {
+        "enable_stats": true,
+        "stats_interval": 60,
+        "enable_alerts": true,
+        "alert_thresholds": {
+            "threat_detection_rate": 0.1,
+            "blocked_connections": 100,
+            "processing_latency": 1000
+        }
+    }
+}

@@ -1,0 +1,137 @@
+{
+  "test_timestamp": "2025-07-24T11:33:23.361114",
+  "test_summary": {
+    "total_test_categories": 4,
+    "overall_success": true
+  },
+  "test_results": {
+    "sensitive_data_detection": {
+      "success_rate": 75.0,
+      "total_tests": 4,
+      "passed_tests": 3,
+      "avg_processing_time_ms": 0.63,
+      "detailed_results": [
+        {
+          "test_name": "信用卡泄露测试",
+          "success": true,
+          "expected_action": "modify",
+          "actual_action": "modify",
+          "processing_time_ms": 1.0,
+          "threat_id": "3801da494bff9775",
+          "data_modified": true
+        },
+        {
+          "test_name": "多重敏感数据测试",
+          "success": true,
+          "expected_action": "modify",
+          "actual_action": "modify",
+          "processing_time_ms": 1.0,
+          "threat_id": "3b33adb0bb0925c4",
+          "data_modified": true
+        },
+        {
+          "test_name": "API密钥泄露测试",
+          "success": true,
+          "expected_action": "modify",
+          "actual_action": "modify",
+          "processing_time_ms": 0.0,
+          "threat_id": "e9982632d19005ed",
+          "data_modified": true
+        },
+        {
+          "test_name": "正常数据测试",
+          "success": false,
+          "expected_action": "allow",
+          "actual_action": "modify",
+          "processing_time_ms": 0.51,
+          "threat_id": "4aec83b6e4cb0976",
+          "data_modified": false
+        }
+      ]
+    },
+    "network_interception": {
+      "success_rate": 100.0,
+      "total_tests": 3,
+      "passed_tests": 3,
+      "detailed_results": [
+        {
+          "test_name": "GET请求测试",
+          "success": true,
+          "status_code": 200,
+          "response_time_ms": 5.03,
+          "response_size": 433,
+          "contains_sensitive": false
+        },
+        {
+          "test_name": "POST敏感数据测试",
+          "success": true,
+          "status_code": 200,
+          "response_time_ms": 16.5,
+          "response_size": 150,
+          "contains_sensitive": true
+        },
+        {
+          "test_name": "大数据量测试",
+          "success": true,
+          "status_code": 200,
+          "response_time_ms": 15.99,
+          "response_size": 156,
+          "contains_sensitive": false
+        }
+      ]
+    },
+    "performance": {
+      "detailed_results": [
+        {
+          "data_size": 100,
+          "avg_processing_time_ms": 8.33,
+          "max_processing_time_ms": 76.74,
+          "min_processing_time_ms": 0.51,
+          "throughput_bytes_per_ms": 12.0
+        },
+        {
+          "data_size": 1000,
+          "avg_processing_time_ms": 0.49,
+          "max_processing_time_ms": 1.07,
+          "min_processing_time_ms": 0.0,
+          "throughput_bytes_per_ms": 2021.84
+        },
+        {
+          "data_size": 10000,
+          "avg_processing_time_ms": 0.67,
+          "max_processing_time_ms": 1.14,
+          "min_processing_time_ms": 0.51,
+          "throughput_bytes_per_ms": 14855.51
+        },
+        {
+          "data_size": 50000,
+          "avg_processing_time_ms": 0.6,
+          "max_processing_time_ms": 1.09,
+          "min_processing_time_ms": 0.0,
+          "throughput_bytes_per_ms": 83835.78
+        }
+      ],
+      "max_acceptable_latency_ms": 100,
+      "performance_acceptable": true
+    },
+    "alert_system": {
+      "tests_performed": 2,
+      "alerts_logged": 2,
+      "detailed_results": [
+        {
+          "test_name": "高危威胁告警",
+          "alert_logged": true,
+          "threat_id": "c11901f16d3450e4"
+        },
+        {
+          "test_name": "中危威胁告警",
+          "alert_logged": true,
+          "threat_id": "9bcf88982f46841e"
+        }
+      ]
+    }
+  },
+  "recommendations": [
+    "敏感数据检测成功率偏低 (75.0%)，建议优化检测规则"
+  ]
+}

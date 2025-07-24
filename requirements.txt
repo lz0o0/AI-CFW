@@ -1,0 +1,52 @@
+# CFW防火墙系统依赖包
+# 
+# 网络包处理
+scapy>=2.4.5
+
+# 加密和证书管理
+cryptography>=3.4.8
+
+# Linux流量拦截（仅Linux系统需要）
+netfilterqueue>=0.8.1; sys_platform == "linux"
+
+# HTTP请求处理
+requests>=2.25.1
+
+# JSON配置处理
+# json是Python标准库，无需安装
+
+# 正则表达式
+# re是Python标准库，无需安装
+
+# 时间处理
+# time和datetime是Python标准库，无需安装
+
+# 路径处理
+# pathlib是Python标准库，无需安装
+
+# 日志处理
+# logging是Python标准库，无需安装
+
+# 多线程
+# threading是Python标准库，无需安装
+
+# 网络工具
+# socket是Python标准库，无需安装
+
+# 系统工具
+# os和sys是Python标准库，无需安装
+
+# 类型注解（Python 3.7+已内置）
+# typing是Python标准库，无需安装
+
+# 抽象基类
+# abc是Python标准库，无需安装
+
+# URL处理
+# urllib是Python标准库，无需安装
+
+# Base64编码
+# base64是Python标准库，无需安装
+
+# 进程管理
+# subprocess是Python标准库，无需安装

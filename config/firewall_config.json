@@ -1,0 +1,41 @@
+{
+    "log_level": "INFO",
+    "log_file": "firewall.log",
+    "interface": "eth0",
+    "rules": [],
+    "whitelist": [],
+    "blacklist": [],
+    "traffic_mode": "direct",
+    "ssl_interception": {
+        "enabled": true,
+        "ca_cert_path": "firewall_ca.crt",
+        "ca_key_path": "firewall_ca.key",
+        "intercept_domains": []
+    },
+    "dpi": {
+        "enabled": true,
+        "content_filter": {
+            "blocked_keywords": [],
+            "blocked_patterns": [],
+            "blocked_domains": [],
+            "blocked_urls": [],
+            "blocked_file_types": [
+                "exe",
+                "bat",
+                "scr"
+            ],
+            "malware_signatures": []
+        },
+        "threat_detection": {
+            "max_connections_per_ip": 100,
+            "max_requests_per_minute": 1000,
+            "ddos_threshold": 10000,
+            "port_scan_threshold": 20
+        }
+    },
+    "advanced_logging": {
+        "log_ssl_connections": false,
+        "log_http_content": false,
+        "log_threats": true
+    }
+}
